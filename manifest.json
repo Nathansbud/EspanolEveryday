@@ -3,26 +3,11 @@
     "version": "0.1",   
     "manifest_version": 2,
     "description": "Spanish phrases, daily!",    
-    
-    "content_scripts": [
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": ["content.js"]
-        }
-    ],
-
-    "background": {
-        "scripts": ["background.js"]
-    },
-
     "icons": { 
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
        "128": "icons/icon128.png" 
     },
-
     "chrome_url_overrides": {
         "newtab": "newtab.html"
     },

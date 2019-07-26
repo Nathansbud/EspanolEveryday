@@ -1,0 +1,46 @@
+:root {
+    --bg-color: #333333;
+    --word-color: white;
+    --clickable-color: grey;
+    --text-color: #F0E68C;
+}
+
+body {
+    background: var(--bg-color);
+    text-align: center;     
+}
+
+h1 {
+    font-size: 500%;
+    color: var(--word-color);
+}
+
+h2 {
+    font-size: 300%;
+    color: var(--text-color);
+}
+
+#example {
+    font-size: 200%;
+    color: var(--word-color);
+}
+
+#example::before, #example::after {
+    content: "\"";
+    
+}
+
+#extension {
+    display: none;
+}
+
+.clickable {
+    text-decoration: none;
+    color: var(--word-color);
+}
+
+.clickable:hover {
+    color: var(--clickable-color);
+    text-decoration: underline;
+}
+
