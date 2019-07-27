@@ -6,6 +6,9 @@ let wordDefinition = document.getElementById("definition")
 let wordExample = document.getElementById("example")
 let userSection = document.getElementById("user_section")
 
+let scoreHeader = document.getElementById("score")
+let streakHeader = document.getElementById("streak")
+
 let addPracticeButton = document.getElementById("add_practice")
 
 let score = 0
@@ -31,7 +34,7 @@ function setupStorage() {
 
 function readFromStorage() {
     let todayDate = new Date().setUTCHours(0, 0, 0, 0)
-    console.log(todayDate)
+
     if(localStorage.getItem("date") != todayDate) {
         feednami.load(url).then(feed => {
             firstEntry = feed.entries[0]
@@ -54,8 +57,7 @@ function readFromStorage() {
         wordHeader.textContent = localStorage.getItem("word")
         wordDefinition.textContent = localStorage.getItem("definition")
         wordExample.textContent = ""
-        
-        score = Number.parseInt(localStorage.getItem("score"))
+        updateScoreText();
 
         let words = localStorage.getItem("example")
         
@@ -148,6 +150,11 @@ function updateExamples() {
     localStorage.setItem("userExamples", JSON.stringify(examples))
 }
 
+function updateScoreText() {
+    scoreHeader.textContent = localStorage.getItem("score")
+    streakHeader.textContent = localStorage.getItem("scorestreak")
+}
+
 function updateScore() {
     today = localStorage.getItem("date")
     if(localStorage.getItem("lastAwarded") == today) return
@@ -164,6 +171,7 @@ function updateScore() {
             localStorage.setItem("scorestreak", "1")
             localStorage.setItem("lastAwarded", today)
         }
+        updateScoreText();
     }
 }
 
