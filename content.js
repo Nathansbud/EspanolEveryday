@@ -33,7 +33,7 @@ function setupStorage() {
 }
 
 function readFromStorage() {
-    let todayDate = new Date().setUTCHours(0, 0, 0, 0)
+    let todayDate = new Date().setHours(0, 0, 0, 0)
 
     if(localStorage.getItem("date") != todayDate) {
         feednami.load(url).then(feed => {
@@ -167,7 +167,7 @@ function updateScore() {
             localStorage.setItem("score", (currentScore + 100*currentScorestreak).toString());
             localStorage.setItem("lastAwarded", today)
         } else {
-            localStorage.setItem("score", Number.parseInt(localStorage.getItem("score")+100))
+            localStorage.setItem("score", Number.parseInt(localStorage.getItem("score"))+100)
             localStorage.setItem("scorestreak", "1")
             localStorage.setItem("lastAwarded", today)
         }
